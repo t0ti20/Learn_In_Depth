@@ -13,57 +13,39 @@
 /*****************************************
 ----------    GLOBAL DATA     ------------
 *****************************************/
-list_t my_list;
-int main(void)
-{
-     u8 Counter=0;
-     storage_type Data;
-     Linked_List_Initialization(&my_list);
-     printf("==== Pleese Enter (!) To End ====\n");
-     do
-     {
-          printf("Enter [%d] Elenent : ",Counter++);
-          fflush(stdout);
-          scanf(" %c",&Data);
-          fflush(stdin);
-          if(Data=='!')break;
-          Linked_List_Append(&my_list,Data);
-     }while(True);
-     Linked_List_Print(&my_list);
-}
 /********************************************************************
-* Syntax          : list_error Linked_List_Initialization(list_t *my_list)
+* Syntax          : Linked_List_Error Linked_List_Initialization(Linked_List_t *my_list)
 * Description     : Initialize The List
 * Sync-Async      : *
 * Reentrancy      : *
 * Parameters (in) : (Ptr To List)
 * Parameters (out): None
-* Return value:   : list_error
+* Return value:   : Linked_List_Error
 ********************************************************************/
-list_error Linked_List_Initialization(list_t *my_list)
+Linked_List_Error Linked_List_Initialization(Linked_List_t *my_list)
 {
      my_list->head=NULL;
      my_list->size=-1;
-     return List_Ok;
+     return Linked_List_Ok;
 }
 /********************************************************************
-* Syntax          : list_error Linked_List_Insert(list_t *my_list,u8 node_number,storage_type data)
+* Syntax          : Linked_List_Error Linked_List_Insert(Linked_List_t *my_list,u8 node_number,storage_type data)
 * Description     : Insert Node To Linked List
 * Sync-Async      : *
 * Reentrancy      : *
 * Parameters (in) : (Ptr To List),(Node Number),(Data)
 * Parameters (out): None
-* Return value:   : list_error
+* Return value:   : Linked_List_Error
 ********************************************************************/
-list_error Linked_List_Insert(list_t *my_list,u8 node_number,storage_type data)
+Linked_List_Error Linked_List_Insert(Linked_List_t *my_list,u8 node_number,storage_type data)
 {
-     s8 flag;
+     Linked_List_Error flag;
      if(my_list->size>=(node_number-ONE))
      {
-          list_node_t *new_node=(list_node_t*)malloc(sizeof(list_node_t));
+          Linked_List_node_t *new_node=(Linked_List_node_t*)malloc(sizeof(Linked_List_node_t));
           if(new_node)
           {
-               list_node_t *temp=my_list->head;
+               Linked_List_node_t *temp=my_list->head;
                new_node->data=data;
                if(node_number==ZERO)
                {
@@ -78,34 +60,32 @@ list_error Linked_List_Insert(list_t *my_list,u8 node_number,storage_type data)
                     temp->next_ptr=new_node;
                }
                my_list->size++;
-               flag=List_Ok;
+               flag=Linked_List_Ok;
           }
           else
           {
-               printf("- Error Getting Memory.\n");
-               flag=List_Wrong_Memory;
+               flag=Linked_List_Wrong_Memory;
           }
      }
      else 
      {
-          printf("- Error Getting Node.\n");
-          flag=List_Wrong_Size;
+          flag=Linked_List_Wrong_Size;
      }
      return flag;
 }
 /********************************************************************
-* Syntax          : list_error Linked_List_Append(list_t *my_list,storage_type data)
+* Syntax          : Linked_List_Error Linked_List_Append(Linked_List_t *my_list,storage_type data)
 * Description     : Append To The List
 * Sync-Async      : *
 * Reentrancy      : *
 * Parameters (in) : (Ptr To List),(Data)
 * Parameters (out): None
-* Return value:   : list_error
+* Return value:   : Linked_List_Error
 ********************************************************************/
-list_error Linked_List_Append(list_t *my_list,storage_type data)
+Linked_List_Error Linked_List_Append(Linked_List_t *my_list,storage_type data)
 {
-     s8 flag;
-     list_node_t *new_node=(list_node_t*)malloc(sizeof(list_node_t));
+     Linked_List_Error flag;
+     Linked_List_node_t *new_node=(Linked_List_node_t*)malloc(sizeof(Linked_List_node_t));
      if(new_node)
      {
           new_node->data=data;
@@ -116,61 +96,21 @@ list_error Linked_List_Append(list_t *my_list,storage_type data)
           }
           else
           {
-               list_node_t *temp=my_list->head;
+               Linked_List_node_t *temp=my_list->head;
                while(temp->next_ptr!=NULL) temp=temp->next_ptr;
                temp->next_ptr=new_node;
           }
           my_list->size++;
-          flag=List_Ok;
+          flag=Linked_List_Ok;
      }
      else
      {
-          printf("- Error Getting Memory.\n");
-          flag=List_Wrong_Memory;
+          flag=Linked_List_Wrong_Memory;
      }
      return flag;
 }
 /********************************************************************
-* Syntax          : list_error Linked_List_Print(list_t *my_list)
-* Description     : Print The Content Of Linked List
-* Sync-Async      : *
-* Reentrancy      : *
-* Parameters (in) : (Ptr To List)
-* Parameters (out): None
-* Return value:   : list_error
-********************************************************************/
-list_error Linked_List_Print(list_t *my_list)
-{
-     s8 flag;
-     if(!my_list->head)
-     {
-          flag=List_Empty;
-          printf("- Your List Is Empty\n");
-     }
-     else
-     {
-          u8 Counter=0;
-          list_node_t *temp=my_list->head;
-          while(temp->next_ptr!=NULL)
-          {
-               #if storage_type == u8
-               printf("-> [%d] = '%c'\n",Counter++,temp->data);
-               #else
-               printf("-> [%d] = '%d'\n",Counter++,temp->data);
-               #endif
-               temp=temp->next_ptr;
-          }
-          #if storage_type == u8
-          printf("-> [%d] = '%c'\n",Counter++,temp->data);
-          #else
-          printf("-> [%d] = '%d'\n",Counter++,temp->data);
-          #endif
-          flag=List_Ok;
-     }
-     return flag;
-}
-/********************************************************************
-* Syntax          : storage_type Linked_List_Get_Node(list_t *my_list,u8 node_number)
+* Syntax          : storage_type Linked_List_Get_Node(Linked_List_t *my_list,u8 node_number)
 * Description     : Get Specific Node
 * Sync-Async      : *
 * Reentrancy      : *
@@ -178,29 +118,28 @@ list_error Linked_List_Print(list_t *my_list)
 * Parameters (out): None
 * Return value:   : Node Data
 ********************************************************************/
-list_error Linked_List_Get_Node(list_t *my_list,u8 node_number,storage_type *data)
+Linked_List_Error Linked_List_Get_Node(Linked_List_t *my_list,u8 node_number,storage_type *data)
 {
-     s8 flag;
+     Linked_List_Error flag;
      if(node_number>my_list->size)
      {
-          printf("- Error Getting Node.\n");
-          flag=List_Wrong_Size;
+          flag=Linked_List_Wrong_Size;
      }
      else
      {
-          list_node_t *temp=my_list->head;
+          Linked_List_node_t *temp=my_list->head;
           while(node_number>=ONE)
           {
                temp=temp->next_ptr;
                node_number--;
           }
           *data=temp->data;
-          flag=List_Ok;
+          flag=Linked_List_Ok;
      }
      return flag;
 }
 /********************************************************************
-* Syntax          : storage_type Linked_List_Delete_Node(list_t *my_list,u8 node_number)
+* Syntax          : storage_type Linked_List_Delete_Node(Linked_List_t *my_list,u8 node_number)
 * Description     : Delete Specific Node
 * Sync-Async      : *
 * Reentrancy      : *
@@ -208,17 +147,16 @@ list_error Linked_List_Get_Node(list_t *my_list,u8 node_number,storage_type *dat
 * Parameters (out): None
 * Return value:   : storage_type
 ********************************************************************/
-list_error Linked_List_Delete_Node(list_t *my_list,u8 node_number)
+Linked_List_Error Linked_List_Delete_Node(Linked_List_t *my_list,u8 node_number)
 {
-     s8 flag;
+     Linked_List_Error flag;
      if(node_number>my_list->size)
      {
-          printf("- Error Getting Node.\n");
-          flag=List_Wrong_Size;
+          flag=Linked_List_Wrong_Size;
      }
      else
      {
-          list_node_t *current=my_list->head;
+          Linked_List_node_t *current=my_list->head;
           if(node_number==ZERO)
           {
                my_list->head=current->next_ptr;
@@ -227,7 +165,7 @@ list_error Linked_List_Delete_Node(list_t *my_list,u8 node_number)
           }
           else
           {
-               list_node_t *previous=my_list->head;
+               Linked_List_node_t *previous=my_list->head;
                current=current->next_ptr;
                while(node_number>=TWO)
                {
@@ -239,7 +177,31 @@ list_error Linked_List_Delete_Node(list_t *my_list,u8 node_number)
                free(current);
                my_list->size--;
           }
-          flag=List_Ok; 
+          flag=Linked_List_Ok; 
+     }
+     return flag;
+}
+/********************************************************************
+* Syntax          : Linked_List_Error Linked_List_Traverse(Linked_List_t *my_list,void (*function)(storage_type*))
+* Description     : Traverse Linked List
+* Sync-Async      : *
+* Reentrancy      : *
+* Parameters (in) : (Ptr To List),(Function(storage_type*))
+* Parameters (out): None
+* Return value:   : Linked_List_Error
+********************************************************************/
+Linked_List_Error Linked_List_Traverse(Linked_List_t *my_list,void (*function)(storage_type*))
+{
+     Linked_List_Error flag=Linked_List_Empty;
+     if(my_list->size>=ZERO)
+     {
+          Linked_List_node_t *temp=my_list->head;
+          function(&(temp->data));
+          while (temp=temp->next_ptr)
+          {
+               function(&(temp->data));
+          }
+          flag=Linked_List_Ok;
      }
      return flag;
 }

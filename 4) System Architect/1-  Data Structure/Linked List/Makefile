@@ -7,10 +7,8 @@
 # *  Module:  Global
 # *  Description:  Make File For Auto Generation
 #*******************************************************************
-#Compiler Name
-CC=
 #Compiler Flags
-CFLAGS= -g
+CFLAGS= 
 #Linker Flags
 INCS= \
 		-I .
@@ -28,23 +26,14 @@ LIBS=
 #*******************************************************************
 #*******************************************************************
 SRC=$(wildcard *.c)
-SRS=$(wildcard *.s)
-OBJ=$(SRC:.c=.o) $(SRS:.s=.o)
 Application=Application
 #*******************************************************************
 #*******************************************************************
 Make: $(Application)
-	@rm -rf *.o
 	@./$(Application)
-#Compile And Assimble C Files Files
-%.o:%.c
-	@$(CC)gcc $(CFLAGS) -c $< $(INCS) -o $@
-#Assimble Assimply Files
-%.o:%.s
-	@$(CC)as $(CFLAGS) $< -o $@
 #Link All Files And Generate ELF File
-$(Application): $(OBJ)
-	@gcc $(OBJ) -o $@ 
+$(Application): $(SRC)
+	@gcc $(CFLAGS) $(SRC) $(INCS) $(LIBS) -o $@ 
 #Clean All Files
 clean:
 	@rm -rf *.o $(Application)
