@@ -40,7 +40,7 @@ void Delete_Student()
      Index=0;
      Linked_List_Traverse(&my_list,Delete);
      Index=0;
-     if(Global_Index>=0&&Global_Index<my_list.size)
+     if(Global_Index>=0&&Global_Index<=my_list.size)
      {
           Linked_List_Delete_Node(&my_list,Global_Index);
      }
@@ -49,6 +49,7 @@ void Delete_Student()
 int main(void)
 {
      char x;
+     Linked_List_Initialization(&my_list);
      while(1)
      {
           printf("----------------------------------\n");
