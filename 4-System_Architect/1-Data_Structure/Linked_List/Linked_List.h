@@ -34,6 +34,7 @@ Linked_List_Error Linked_List_Delete_Node(Linked_List_t *my_list,u8 node_number)
 Linked_List_Error Linked_List_Insert(Linked_List_t *my_list,u8 node_number,storage_type data);
 Linked_List_Error Linked_List_Traverse(Linked_List_t *my_list,void (*function)(storage_type*));
 Linked_List_Error Linked_List_Get_Node(Linked_List_t *my_list,u8 node_number,storage_type *data);
+Linked_List_Error Linked_List_Get_Node_From_End(Linked_List_t *my_list,u8 node_number,storage_type *data);
 s8 Linked_List_Is_Empty(Linked_List_t *my_list);
 #endif
 /********************************************************************

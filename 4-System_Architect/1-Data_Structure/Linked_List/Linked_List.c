@@ -14,6 +14,24 @@
 ----------    GLOBAL DATA     ------------
 *****************************************/
 /********************************************************************
+* Syntax          : Linked_List_Error Linked_List_Clear(Linked_List_t *my_list)
+* Description     : Delete All Linked List
+* Sync-Async      : *
+* Reentrancy      : *
+* Parameters (in) : (Ptr To List)
+* Parameters (out): None
+* Return value:   : Linked_List_Error
+********************************************************************/
+Linked_List_Error Linked_List_Clear(Linked_List_t *my_list)
+{
+     Linked_List_Error flag;
+     for(s16 Counter=my_list->size;Counter>=ZERO;Counter--)
+     {
+          flag=Linked_List_Delete_Node(my_list,Counter);
+     }
+     return flag;
+}
+/********************************************************************
 * Syntax          : Linked_List_Error Linked_List_Initialization(Linked_List_t *my_list)
 * Description     : Initialize The List
 * Sync-Async      : *
@@ -201,6 +219,38 @@ Linked_List_Error Linked_List_Traverse(Linked_List_t *my_list,void (*function)(s
           {
                function(&(temp->data));
           }
+          flag=Linked_List_Ok;
+     }
+     return flag;
+}
+/********************************************************************
+* Syntax          : Linked_List_Error Linked_List_Get_Node_From_End(Linked_List_t *my_list,u8 node_number,storage_type *data)
+* Description     : Get Specific Node Data
+* Sync-Async      : *
+* Reentrancy      : *
+* Parameters (in) : (Ptr To List),(Node Number),(Pointer To Data)
+* Parameters (out): None
+* Return value:   : Linked_List_Error
+********************************************************************/
+Linked_List_Error Linked_List_Get_Node_From_End(Linked_List_t *my_list,u8 node_number,storage_type *data)
+{
+     Linked_List_Error flag;
+     if(node_number>my_list->size)
+     {
+          flag=Linked_List_Wrong_Size;
+     }
+     else
+     {
+          Linked_List_node_t *start=my_list->head,*end=my_list->head;
+          while(node_number--)
+          {
+               end=end->next_ptr;
+          }
+          while(end=end->next_ptr)
+          {
+               start=start->next_ptr;
+          }
+          *data=start->data;
           flag=Linked_List_Ok;
      }
      return flag;
