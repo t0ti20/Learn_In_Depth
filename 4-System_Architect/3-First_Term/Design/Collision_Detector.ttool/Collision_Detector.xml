@@ -4,9 +4,103 @@
 
 <Modeling type="Avatar Requirement" nameTab="Requirements" >
 <AvatarRDPanel name="AVATARRD" minX="16" maxX="3906" minY="16" maxY="2344" zoom="1.5625" >
-<COMPONENT type="5200" id="44" index="0" uid="fc6b1679-f417-475f-a0c8-797fb8e72f82" >
-<cdparam x="1031" y="285" />
-<sizeparam width="430" height="187" minWidth="9" minHeight="58" maxWidth="3125" maxHeight="3125" minDesiredWidth="0" minDesiredHeight="0" />
+<CONNECTOR type="5206" id="282" index="0" uid="b722302b-4619-4c0f-b311-441fb5bcdbca" >
+<cdparam x="777" y="570" />
+<sizeparam width="0" height="0" minWidth="0" minHeight="0" maxWidth="1280" maxHeight="1280" minDesiredWidth="0" minDesiredHeight="0" />
+<infoparam name="connector" value="&lt;&lt;refine&gt;&gt;" />
+<TGConnectingPoint num="0" id="283" />
+<P1  x="779" y="600" id="140" />
+<P2  x="779" y="514" id="231" />
+<AutomaticDrawing  data="true" />
+<new d="false" />
+</CONNECTOR>
+<CONNECTOR type="5206" id="280" index="1" uid="4aa7651c-6c99-45b9-87e3-953145ee9342" >
+<cdparam x="1288" y="572" />
+<sizeparam width="0" height="0" minWidth="0" minHeight="0" maxWidth="1280" maxHeight="1280" minDesiredWidth="0" minDesiredHeight="0" />
+<infoparam name="connector" value="&lt;&lt;refine&gt;&gt;" />
+<TGConnectingPoint num="0" id="281" />
+<P1  x="1280" y="598" id="184" />
+<P2  x="1280" y="516" id="11" />
+<AutomaticDrawing  data="true" />
+<new d="false" />
+</CONNECTOR>
+<CONNECTOR type="5205" id="274" index="2" uid="9cdb81db-ac9e-4319-9a2e-9262dcf05b6b" >
+<cdparam x="1279" y="332" />
+<sizeparam width="0" height="0" minWidth="0" minHeight="0" maxWidth="2000" maxHeight="2000" minDesiredWidth="0" minDesiredHeight="0" />
+<infoparam name="connector" value="&lt;&lt;composition&gt;&gt;" />
+<TGConnectingPoint num="0" id="277" />
+<TGConnectingPoint num="1" id="278" />
+<TGConnectingPoint num="2" id="279" />
+<P1  x="1280" y="329" id="8" />
+<P2  x="901" y="254" id="56" />
+<Point x="1280" y="292" />
+<Point x="901" y="292" />
+<AutomaticDrawing  data="true" />
+<new d="false" />
+</CONNECTOR><SUBCOMPONENT type="-1" id="275" index="11" uid="648a9fd4-0b37-4725-9ed2-a0f33260d512" >
+<father id="274" num="0" />
+<cdparam x="1280" y="292" />
+<sizeparam width="12" height="12" minWidth="0" minHeight="0" maxWidth="3125" maxHeight="3125" minDesiredWidth="0" minDesiredHeight="0" />
+<hidden value="false" />
+<cdrectangleparam minX="16" maxX="3904" minY="16" maxY="2343" />
+<infoparam name="point " value="null" />
+<new d="false" />
+</SUBCOMPONENT>
+<SUBCOMPONENT type="-1" id="276" index="12" uid="f41a04ac-804b-497c-aa6d-977ce52b6a18" >
+<father id="274" num="1" />
+<cdparam x="901" y="292" />
+<sizeparam width="12" height="12" minWidth="0" minHeight="0" maxWidth="3125" maxHeight="3125" minDesiredWidth="0" minDesiredHeight="0" />
+<hidden value="false" />
+<cdrectangleparam minX="16" maxX="3904" minY="16" maxY="2343" />
+<infoparam name="point " value="null" />
+<new d="false" />
+</SUBCOMPONENT>
+
+<CONNECTOR type="5205" id="272" index="3" uid="a277a2b8-3ca8-4436-8d11-a5038b6c5e7e" >
+<cdparam x="779" y="332" />
+<sizeparam width="0" height="0" minWidth="0" minHeight="0" maxWidth="2000" maxHeight="2000" minDesiredWidth="0" minDesiredHeight="0" />
+<infoparam name="connector" value="&lt;&lt;composition&gt;&gt;" />
+<TGConnectingPoint num="0" id="273" />
+<P1  x="779" y="327" id="228" />
+<P2  x="779" y="254" id="55" />
+<AutomaticDrawing  data="true" />
+<new d="false" />
+</CONNECTOR>
+<CONNECTOR type="5205" id="266" index="4" uid="d69ba2f9-2396-4dca-9742-ed71fed8e493" >
+<cdparam x="279" y="332" />
+<sizeparam width="0" height="0" minWidth="0" minHeight="0" maxWidth="2000" maxHeight="2000" minDesiredWidth="0" minDesiredHeight="0" />
+<infoparam name="connector" value="&lt;&lt;composition&gt;&gt;" />
+<TGConnectingPoint num="0" id="269" />
+<TGConnectingPoint num="1" id="270" />
+<TGConnectingPoint num="2" id="271" />
+<P1  x="279" y="332" id="96" />
+<P2  x="657" y="254" id="54" />
+<Point x="279" y="293" />
+<Point x="657" y="293" />
+<AutomaticDrawing  data="true" />
+<new d="false" />
+</CONNECTOR><SUBCOMPONENT type="-1" id="267" index="13" uid="7bd06ae4-7876-404c-b2d8-89a516fe8f0a" >
+<father id="266" num="0" />
+<cdparam x="279" y="293" />
+<sizeparam width="12" height="12" minWidth="0" minHeight="0" maxWidth="3125" maxHeight="3125" minDesiredWidth="0" minDesiredHeight="0" />
+<hidden value="false" />
+<cdrectangleparam minX="16" maxX="3904" minY="16" maxY="2343" />
+<infoparam name="point " value="null" />
+<new d="false" />
+</SUBCOMPONENT>
+<SUBCOMPONENT type="-1" id="268" index="14" uid="18a3704c-1a2a-4f0c-aaf9-ac4b0a30464e" >
+<father id="266" num="1" />
+<cdparam x="657" y="293" />
+<sizeparam width="12" height="12" minWidth="0" minHeight="0" maxWidth="3125" maxHeight="3125" minDesiredWidth="0" minDesiredHeight="0" />
+<hidden value="false" />
+<cdrectangleparam minX="16" maxX="3904" minY="16" maxY="2343" />
+<infoparam name="point " value="null" />
+<new d="false" />
+</SUBCOMPONENT>
+
+<COMPONENT type="5200" id="44" index="5" uid="fc6b1679-f417-475f-a0c8-797fb8e72f82" >
+<cdparam x="1065" y="329" />
+<sizeparam width="430" height="187" minWidth="9" minHeight="37" maxWidth="3125" maxHeight="3125" minDesiredWidth="0" minDesiredHeight="0" />
 <hidden value="false" />
 <cdrectangleparam minX="10" maxX="2499" minY="10" maxY="1500" />
 <infoparam name="Requirement" value="Alarm" />
@@ -69,9 +163,9 @@
 </extraparam>
 </COMPONENT>
 
-<COMPONENT type="5200" id="88" index="1" uid="46cdf836-750e-4917-a415-adfa5baaa112" >
-<cdparam x="356" y="20" />
-<sizeparam width="488" height="187" minWidth="5" minHeight="57" maxWidth="3125" maxHeight="3125" minDesiredWidth="0" minDesiredHeight="0" />
+<COMPONENT type="5200" id="88" index="6" uid="46cdf836-750e-4917-a415-adfa5baaa112" >
+<cdparam x="535" y="67" />
+<sizeparam width="488" height="187" minWidth="5" minHeight="37" maxWidth="3125" maxHeight="3125" minDesiredWidth="0" minDesiredHeight="0" />
 <hidden value="false" />
 <cdrectangleparam minX="10" maxX="2499" minY="10" maxY="1500" />
 <infoparam name="Requirement" value="Pressure_Detection" />
@@ -133,9 +227,9 @@
 </extraparam>
 </COMPONENT>
 
-<COMPONENT type="5200" id="132" index="2" uid="cef27dda-85a3-4e1e-931b-5601a04e892c" >
-<cdparam x="31" y="285" />
-<sizeparam width="430" height="187" minWidth="5" minHeight="57" maxWidth="3125" maxHeight="3125" minDesiredWidth="0" minDesiredHeight="0" />
+<COMPONENT type="5200" id="132" index="7" uid="cef27dda-85a3-4e1e-931b-5601a04e892c" >
+<cdparam x="64" y="332" />
+<sizeparam width="430" height="187" minWidth="5" minHeight="37" maxWidth="3125" maxHeight="3125" minDesiredWidth="0" minDesiredHeight="0" />
 <hidden value="false" />
 <cdrectangleparam minX="10" maxX="2499" minY="10" maxY="1500" />
 <infoparam name="Requirement" value="Pressure_Sensing" />
@@ -190,7 +284,7 @@
 <kind data="Functional" />
 <criticality data="Low" />
 <reqType data="Requirement" color="-1773070" />
-<id data="2" />
+<id data="1" />
 <satisfied data="false" />
 <verified data="false" />
 <attackTreeNode data="" />
@@ -199,9 +293,9 @@
 </extraparam>
 </COMPONENT>
 
-<COMPONENT type="5200" id="220" index="3" uid="907ec16f-5e55-44d1-a5c2-6e9f3005db8f" >
-<cdparam x="1085" y="525" />
-<sizeparam width="340" height="187" minWidth="14" minHeight="58" maxWidth="3125" maxHeight="3125" minDesiredWidth="0" minDesiredHeight="0" />
+<COMPONENT type="5200" id="220" index="8" uid="907ec16f-5e55-44d1-a5c2-6e9f3005db8f" >
+<cdparam x="1110" y="598" />
+<sizeparam width="340" height="187" minWidth="14" minHeight="37" maxWidth="3125" maxHeight="3125" minDesiredWidth="0" minDesiredHeight="0" />
 <hidden value="false" />
 <cdrectangleparam minX="10" maxX="2499" minY="10" maxY="1500" />
 <infoparam name="Requirement" value="Alarm_Duration" />
@@ -255,7 +349,7 @@
 <kind data="Functional" />
 <criticality data="Low" />
 <reqType data="Requirement" color="-1773070" />
-<id data="4" />
+<id data="5" />
 <satisfied data="false" />
 <verified data="false" />
 <attackTreeNode data="" />
@@ -264,9 +358,9 @@
 </extraparam>
 </COMPONENT>
 
-<COMPONENT type="5200" id="264" index="4" uid="56f5dbaa-5d37-4e75-98ad-3bc0249c2015" >
-<cdparam x="531" y="285" />
-<sizeparam width="430" height="187" minWidth="5" minHeight="58" maxWidth="3125" maxHeight="3125" minDesiredWidth="0" minDesiredHeight="0" />
+<COMPONENT type="5200" id="264" index="9" uid="56f5dbaa-5d37-4e75-98ad-3bc0249c2015" >
+<cdparam x="564" y="327" />
+<sizeparam width="430" height="187" minWidth="5" minHeight="37" maxWidth="3125" maxHeight="3125" minDesiredWidth="0" minDesiredHeight="0" />
 <hidden value="false" />
 <cdrectangleparam minX="10" maxX="2499" minY="10" maxY="1500" />
 <infoparam name="Requirement" value="Main_Algorithm" />
@@ -320,7 +414,7 @@
 <kind data="Functional" />
 <criticality data="Low" />
 <reqType data="Requirement" color="-1773070" />
-<id data="1" />
+<id data="2" />
 <satisfied data="false" />
 <verified data="false" />
 <attackTreeNode data="" />
@@ -329,9 +423,9 @@
 </extraparam>
 </COMPONENT>
 
-<COMPONENT type="5200" id="176" index="5" uid="fe732361-ff50-4da2-ba0c-d7ec738e697a" >
-<cdparam x="575" y="524" />
-<sizeparam width="340" height="187" minWidth="9" minHeight="58" maxWidth="3125" maxHeight="3125" minDesiredWidth="0" minDesiredHeight="0" />
+<COMPONENT type="5200" id="176" index="10" uid="fe732361-ff50-4da2-ba0c-d7ec738e697a" >
+<cdparam x="609" y="600" />
+<sizeparam width="340" height="187" minWidth="9" minHeight="37" maxWidth="3125" maxHeight="3125" minDesiredWidth="0" minDesiredHeight="0" />
 <hidden value="false" />
 <cdrectangleparam minX="10" maxX="2499" minY="10" maxY="1500" />
 <infoparam name="Requirement" value="Sensing_Threshold" />
