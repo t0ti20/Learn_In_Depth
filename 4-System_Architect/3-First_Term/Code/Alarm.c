@@ -23,6 +23,6 @@
 void Start_Alarm(void)
 {
      Set_Alarm_actuator(1);
-     Delay(60);
+     Delay(100000);
      Set_Alarm_actuator(0);
 }
