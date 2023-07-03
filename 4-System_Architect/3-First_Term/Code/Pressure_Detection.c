@@ -25,8 +25,8 @@ void Main_Algorithm(void)
      int Pressure=0;
      while (True)
      {
-          Pressure=Get_Pressure();
-          if(Pressure>Theshold)
+          Pressure=getPressureVal();
+          if(getPressureVal()>Theshold)
           {
                Start_Alarm();
           }
