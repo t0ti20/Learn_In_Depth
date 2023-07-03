@@ -108,7 +108,7 @@ LOAD main.o
 LOAD Pressure_Detection.o
 LOAD Pressure_Sensor.o
 LOAD Startup.o
-OUTPUT(cortex-M4.elf elf32-littlearm)
+OUTPUT(Application.elf elf32-littlearm)
 LOAD linker stubs
 
 .debug_info     0x0000000000000000      0x500
