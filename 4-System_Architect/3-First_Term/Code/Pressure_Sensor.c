@@ -22,5 +22,5 @@
 ********************************************************************/
 int Get_Pressure(void)
 {
-     return ((int)getPressureVal());
+     return (getPressureVal());
 }
