@@ -25,8 +25,15 @@ void Main_Algorithm(void)
 {
      while (True)
      {
-          Pressure=getPressureVal();
-          if(Pressure>=20)Set_Alarm_actuator(0);
-          else Set_Alarm_actuator(1);
+          Pressure=(GPIOA_IDR & 0xFF);
+          if(Pressure>=20)
+          {
+               
+               Set_Alarm_actuator(0);
+          }
+          else 
+          {
+               Set_Alarm_actuator(1);
+          }
      }
 }
