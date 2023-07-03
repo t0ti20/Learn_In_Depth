@@ -25,10 +25,14 @@ void Main_Algorithm(void)
      int Pressure=0;
      while (True)
      {
-          Pressure=getPressureVal();
-          if(getPressureVal()>Theshold)
-          {
-               Start_Alarm();
-          }
+          // Pressure=getPressureVal();
+          // if(getPressureVal()>Theshold)
+          // {
+          //      Start_Alarm();
+          // }
+               Set_Alarm_actuator(1);
+     Delay(100000);
+     Set_Alarm_actuator(0);
+     Delay(100000);
      }
 }

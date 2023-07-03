@@ -9,7 +9,7 @@ RAM              0x0000000020000000 0x0000000000005000 xrw
 Linker script and memory map
 
 
-.text           0x0000000008000000      0x258
+.text           0x0000000008000000      0x264
                 0x0000000008000000                _START_VECTORS_ = .
  *(.vectors*)
  .vectors       0x0000000008000000       0xc8 Startup.o
@@ -26,37 +26,39 @@ Linker script and memory map
                 0x000000000800015c                GPIO_INITIALIZATION
  .text          0x00000000080001ac        0xe main.o
                 0x00000000080001ac                main
- .text          0x00000000080001ba       0x20 Pressure_Detection.o
-                0x00000000080001ba                Main_Algorithm
- .text          0x00000000080001da        0xe Pressure_Sensor.o
-                0x00000000080001da                Get_Pressure
- .text          0x00000000080001e8       0x70 Startup.o
-                0x00000000080001e8                _RESET_
-                0x00000000080001e8                NMI_Handler
-                0x00000000080001e8                Hard_Fault_Handler
-                0x0000000008000258                . = ALIGN (0x4)
-                0x0000000008000258                _END_TEXT_ = .
-                0x0000000008000258                _START_LMA_DATA_ = .
+ *fill*         0x00000000080001ba        0x2 
+ .text          0x00000000080001bc       0x28 Pressure_Detection.o
+                0x00000000080001bc                Main_Algorithm
+ .text          0x00000000080001e4        0xe Pressure_Sensor.o
+                0x00000000080001e4                Get_Pressure
+ *fill*         0x00000000080001f2        0x2 
+ .text          0x00000000080001f4       0x70 Startup.o
+                0x00000000080001f4                _RESET_
+                0x00000000080001f4                NMI_Handler
+                0x00000000080001f4                Hard_Fault_Handler
+                0x0000000008000264                . = ALIGN (0x4)
+                0x0000000008000264                _END_TEXT_ = .
+                0x0000000008000264                _START_LMA_DATA_ = .
 
-.glue_7         0x0000000008000258        0x0
- .glue_7        0x0000000008000258        0x0 linker stubs
+.glue_7         0x0000000008000264        0x0
+ .glue_7        0x0000000008000264        0x0 linker stubs
 
-.glue_7t        0x0000000008000258        0x0
- .glue_7t       0x0000000008000258        0x0 linker stubs
+.glue_7t        0x0000000008000264        0x0
+ .glue_7t       0x0000000008000264        0x0 linker stubs
 
-.vfp11_veneer   0x0000000008000258        0x0
- .vfp11_veneer  0x0000000008000258        0x0 linker stubs
+.vfp11_veneer   0x0000000008000264        0x0
+ .vfp11_veneer  0x0000000008000264        0x0 linker stubs
 
-.v4_bx          0x0000000008000258        0x0
- .v4_bx         0x0000000008000258        0x0 linker stubs
+.v4_bx          0x0000000008000264        0x0
+ .v4_bx         0x0000000008000264        0x0 linker stubs
 
-.iplt           0x0000000008000258        0x0
- .iplt          0x0000000008000258        0x0 Alarm.o
+.iplt           0x0000000008000264        0x0
+ .iplt          0x0000000008000264        0x0 Alarm.o
 
-.rel.dyn        0x0000000008000258        0x0
- .rel.iplt      0x0000000008000258        0x0 Alarm.o
+.rel.dyn        0x0000000008000264        0x0
+ .rel.iplt      0x0000000008000264        0x0 Alarm.o
 
-.data           0x0000000020000000        0x0 load address 0x0000000008000258
+.data           0x0000000020000000        0x0 load address 0x0000000008000264
                 0x0000000020000000                _START_VMA_DATA_ = .
  *(.data)
  .data          0x0000000020000000        0x0 Alarm.o
@@ -68,12 +70,12 @@ Linker script and memory map
  *(.rodara)
                 0x0000000020000000                . = ALIGN (0x4)
                 0x0000000020000000                _END_VMA_DATA_ = .
-                0x0000000008000258                _END_LMA_DATA_ = ((_END_VMA_DATA_ - _START_VMA_DATA_) + _START_LMA_DATA_)
+                0x0000000008000264                _END_LMA_DATA_ = ((_END_VMA_DATA_ - _START_VMA_DATA_) + _START_LMA_DATA_)
 
-.igot.plt       0x0000000020000000        0x0 load address 0x0000000008000258
+.igot.plt       0x0000000020000000        0x0 load address 0x0000000008000264
  .igot.plt      0x0000000020000000        0x0 Alarm.o
 
-.bss            0x0000000020000000        0x0 load address 0x0000000008000258
+.bss            0x0000000020000000        0x0 load address 0x0000000008000264
                 0x0000000020000000                _START_BSS_ = .
  *(.bss)
  .bss           0x0000000020000000        0x0 Alarm.o
@@ -131,13 +133,13 @@ LOAD linker stubs
  .debug_aranges
                 0x00000000000000a0       0x20 Startup.o
 
-.debug_line     0x0000000000000000      0x2c7
+.debug_line     0x0000000000000000      0x2d7
  .debug_line    0x0000000000000000       0x41 Alarm.o
  .debug_line    0x0000000000000041       0xb2 driver.o
  .debug_line    0x00000000000000f3       0x40 main.o
- .debug_line    0x0000000000000133       0x72 Pressure_Detection.o
- .debug_line    0x00000000000001a5       0x49 Pressure_Sensor.o
- .debug_line    0x00000000000001ee       0xd9 Startup.o
+ .debug_line    0x0000000000000133       0x82 Pressure_Detection.o
+ .debug_line    0x00000000000001b5       0x49 Pressure_Sensor.o
+ .debug_line    0x00000000000001fe       0xd9 Startup.o
 
 .debug_str      0x0000000000000000      0x277
  .debug_str     0x0000000000000000      0x12f Alarm.o
