@@ -1,51 +1,39 @@
-/*******************************************************************
- *  FILE DESCRIPTION
------------------------
- *  Author:  Khaled El-Sayed (@t0ti20)
- *  Created:  05.02.2023
- *  File:  Linker_Script.ld
- *  Module:  Global
- *  Description:  Linker Script For ARM Cortex-M3
-******************************************************************/
-ENTRY(_RESET_)				/*Define Entre Point For ELF File*/
-/******************************************************************/
-/******************************************************************/
-MEMORY						/*Define All Memories*/
+/*LINKER script FOR STM32F103C6*/
+/*ENG : Ahmed Ali Mohammed*/
+
+
+MEMORY
 {
-	ROM (rwx) : ORIGIN = 0X08000000, LENGTH = 128k
-	RAM (rx)  : ORIGIN = 0X20000000, LENGTH = 20k
+FLASH (RX) : ORIGIN = 0x08000000 ,LENGTH = 128K
+SRAM (RWX) : ORIGIN = 0x20000000 , LENGTH = 20K
+
 }
-/******************************************************************/
-/******************************************************************/
+
 SECTIONS
 {
-	.text : 				/*Code Section*/
+	.text :
 	{
-		_START_VECTORS_ = . ;
-		*(.vectors*)
-		_END_VECTORS_ = . ;
-		_START_TEXT_ = . ;
-		*(.text*)
-		. = ALIGN(4) ;
-		_END_TEXT_ = . ;
-		_START_LMA_DATA_ = . ;
-	}> ROM
-	.data :					/*Global-Const Initialized*/
+	*(.vectors*)
+	*(.text*)
+	*(.rodata)
+	_E_text = . ;
+	}> FLASH
+	.data :
 	{
-		_START_VMA_DATA_ = . ;
-		*(.data)
-		*(.rodara)
-		. = ALIGN(4) ;
-		_END_VMA_DATA_ = . ;
-		_END_LMA_DATA_ = ( ( _END_VMA_DATA_ - _START_VMA_DATA_ ) + _START_LMA_DATA_ ) ;
-	}> RAM AT> ROM
-	.bss :					/*Global-Const Uninitialized*/
+	_S_DATA = .;
+	*(.data)
+	_E_DATA = .;
+	. = ALIGN(4);
+	}> SRAM AT> FLASH
+	
+	.bss :
 	{
-		_START_BSS_ = . ;
-		*(.bss)
-		. = ALIGN(4) ;
-		_END_BSS_ = . ;
-	}> RAM
+	_S_BSS = .;
+	*(.bss*)
+	. = ALIGN(4);
+	_E_BSS = .;
+	. = ALIGN(4);
+	. = . +0x1000;
+	_stack_top = .;
+	}> SRAM
 }
-/******************************************************************/
-/******************************************************************/
