@@ -2,78 +2,63 @@
 Memory Configuration
 
 Name             Origin             Length             Attributes
-FLASH            0x0000000008000000 0x0000000000020000 xr
-SRAM             0x0000000020000000 0x0000000000005000 xrw
+ROM              0x0000000008000000 0x0000000000020000 xr
+RAM              0x0000000020000000 0x0000000000005000 xrw
 *default*        0x0000000000000000 0xffffffffffffffff
 
 Linker script and memory map
 
 
-.text           0x0000000008000000      0x208
+.text           0x0000000008000000      0x250
+                0x0000000008000000                _START_VECTORS_ = .
  *(.vectors*)
- .vectors       0x0000000008000000       0x58 Startup.o
-                0x0000000008000000                vectors
+ .vectors       0x0000000008000000       0xc8 Startup.o
+                0x0000000008000000                _VECTORS_
+                0x00000000080000c8                _END_VECTORS_ = .
+                0x00000000080000c8                _START_TEXT_ = .
  *(.text*)
- .text          0x0000000008000058       0x1a Alarm.o
-                0x0000000008000058                Start_Alarm
- *fill*         0x0000000008000072        0x2 
- .text          0x0000000008000074       0xc4 driver.o
-                0x0000000008000074                Delay
-                0x0000000008000096                getPressureVal
-                0x00000000080000ac                Set_Alarm_actuator
-                0x00000000080000e8                GPIO_INITIALIZATION
- .text          0x0000000008000138        0xe main.o
-                0x0000000008000138                main
- .text          0x0000000008000146       0x1c Pressure_Detection.o
-                0x0000000008000146                Main_Algorithm
- .text          0x0000000008000162        0xe Pressure_Sensor.o
-                0x0000000008000162                Get_Pressure
- .text          0x0000000008000170       0x98 Startup.o
-                0x0000000008000170                FLASH
-                0x0000000008000170                EXTI0
-                0x0000000008000170                BusFualt
-                0x0000000008000170                Reserved1
-                0x0000000008000170                WWDG
-                0x0000000008000170                DebugMonitor
-                0x0000000008000170                NMI
-                0x0000000008000170                PendSV
-                0x0000000008000170                Reserved
-                0x0000000008000170                RCC
-                0x0000000008000170                Reset_Handled
-                0x0000000008000170                SVCall
-                0x0000000008000170                RTC
-                0x0000000008000170                HardFault
-                0x0000000008000170                TAMPER
-                0x0000000008000170                SysTick
-                0x0000000008000170                EXTI1
-                0x0000000008000170                UsageFualt
-                0x0000000008000170                PVD
-                0x0000000008000170                EXTI2
-                0x0000000008000170                MemManage
-                0x000000000800017c                Reset
- *(.rodata)
-                0x0000000008000208                _E_text = .
+ .text          0x00000000080000c8       0x1a Alarm.o
+                0x00000000080000c8                Start_Alarm
+ *fill*         0x00000000080000e2        0x2 
+ .text          0x00000000080000e4       0xc4 driver.o
+                0x00000000080000e4                Delay
+                0x0000000008000106                getPressureVal
+                0x000000000800011c                Set_Alarm_actuator
+                0x0000000008000158                GPIO_INITIALIZATION
+ .text          0x00000000080001a8        0xe main.o
+                0x00000000080001a8                main
+ .text          0x00000000080001b6       0x1c Pressure_Detection.o
+                0x00000000080001b6                Main_Algorithm
+ .text          0x00000000080001d2        0xe Pressure_Sensor.o
+                0x00000000080001d2                Get_Pressure
+ .text          0x00000000080001e0       0x70 Startup.o
+                0x00000000080001e0                _RESET_
+                0x00000000080001e0                NMI_Handler
+                0x00000000080001e0                Hard_Fault_Handler
+                0x0000000008000250                . = ALIGN (0x4)
+                0x0000000008000250                _END_TEXT_ = .
+                0x0000000008000250                _START_LMA_DATA_ = .
 
-.glue_7         0x0000000008000208        0x0
- .glue_7        0x0000000008000208        0x0 linker stubs
+.glue_7         0x0000000008000250        0x0
+ .glue_7        0x0000000008000250        0x0 linker stubs
 
-.glue_7t        0x0000000008000208        0x0
- .glue_7t       0x0000000008000208        0x0 linker stubs
+.glue_7t        0x0000000008000250        0x0
+ .glue_7t       0x0000000008000250        0x0 linker stubs
 
-.vfp11_veneer   0x0000000008000208        0x0
- .vfp11_veneer  0x0000000008000208        0x0 linker stubs
+.vfp11_veneer   0x0000000008000250        0x0
+ .vfp11_veneer  0x0000000008000250        0x0 linker stubs
 
-.v4_bx          0x0000000008000208        0x0
- .v4_bx         0x0000000008000208        0x0 linker stubs
+.v4_bx          0x0000000008000250        0x0
+ .v4_bx         0x0000000008000250        0x0 linker stubs
 
-.iplt           0x0000000008000208        0x0
- .iplt          0x0000000008000208        0x0 Alarm.o
+.iplt           0x0000000008000250        0x0
+ .iplt          0x0000000008000250        0x0 Alarm.o
 
-.rel.dyn        0x0000000008000208        0x0
- .rel.iplt      0x0000000008000208        0x0 Alarm.o
+.rel.dyn        0x0000000008000250        0x0
+ .rel.iplt      0x0000000008000250        0x0 Alarm.o
 
-.data           0x0000000020000000        0x0 load address 0x0000000008000208
-                0x0000000020000000                _S_DATA = .
+.data           0x0000000020000000        0x0 load address 0x0000000008000250
+                0x0000000020000000                _START_VMA_DATA_ = .
  *(.data)
  .data          0x0000000020000000        0x0 Alarm.o
  .data          0x0000000020000000        0x0 driver.o
@@ -81,15 +66,17 @@ Linker script and memory map
  .data          0x0000000020000000        0x0 Pressure_Detection.o
  .data          0x0000000020000000        0x0 Pressure_Sensor.o
  .data          0x0000000020000000        0x0 Startup.o
-                0x0000000020000000                _E_DATA = .
+ *(.rodara)
                 0x0000000020000000                . = ALIGN (0x4)
+                0x0000000020000000                _END_VMA_DATA_ = .
+                0x0000000008000250                _END_LMA_DATA_ = ((_END_VMA_DATA_ - _START_VMA_DATA_) + _START_LMA_DATA_)
 
-.igot.plt       0x0000000020000000        0x0 load address 0x0000000008000208
+.igot.plt       0x0000000020000000        0x0 load address 0x0000000008000250
  .igot.plt      0x0000000020000000        0x0 Alarm.o
 
-.bss            0x0000000020000000     0x1000 load address 0x0000000008000208
-                0x0000000020000000                _S_BSS = .
- *(.bss*)
+.bss            0x0000000020000000        0x0 load address 0x0000000008000250
+                0x0000000020000000                _START_BSS_ = .
+ *(.bss)
  .bss           0x0000000020000000        0x0 Alarm.o
  .bss           0x0000000020000000        0x0 driver.o
  .bss           0x0000000020000000        0x0 main.o
@@ -97,11 +84,7 @@ Linker script and memory map
  .bss           0x0000000020000000        0x0 Pressure_Sensor.o
  .bss           0x0000000020000000        0x0 Startup.o
                 0x0000000020000000                . = ALIGN (0x4)
-                0x0000000020000000                _E_BSS = .
-                0x0000000020000000                . = ALIGN (0x4)
-                0x0000000020001000                . = (. + 0x1000)
- *fill*         0x0000000020000000     0x1000 
-                0x0000000020001000                _stack_top = .
+                0x0000000020000000                _END_BSS_ = .
 LOAD Alarm.o
 LOAD driver.o
 LOAD main.o
@@ -111,29 +94,29 @@ LOAD Startup.o
 OUTPUT(Application.elf elf32-littlearm)
 LOAD linker stubs
 
-.debug_info     0x0000000000000000      0x500
+.debug_info     0x0000000000000000      0x4b0
  .debug_info    0x0000000000000000       0x91 Alarm.o
  .debug_info    0x0000000000000091      0x106 driver.o
  .debug_info    0x0000000000000197       0x94 main.o
  .debug_info    0x000000000000022b       0xc0 Pressure_Detection.o
  .debug_info    0x00000000000002eb       0x95 Pressure_Sensor.o
- .debug_info    0x0000000000000380      0x180 Startup.o
+ .debug_info    0x0000000000000380      0x130 Startup.o
 
-.debug_abbrev   0x0000000000000000      0x2d9
+.debug_abbrev   0x0000000000000000      0x2ab
  .debug_abbrev  0x0000000000000000       0x44 Alarm.o
  .debug_abbrev  0x0000000000000044       0xc3 driver.o
  .debug_abbrev  0x0000000000000107       0x44 main.o
  .debug_abbrev  0x000000000000014b       0x73 Pressure_Detection.o
  .debug_abbrev  0x00000000000001be       0x46 Pressure_Sensor.o
- .debug_abbrev  0x0000000000000204       0xd5 Startup.o
+ .debug_abbrev  0x0000000000000204       0xa7 Startup.o
 
-.debug_loc      0x0000000000000000      0x278
+.debug_loc      0x0000000000000000      0x234
  .debug_loc     0x0000000000000000       0x2c Alarm.o
  .debug_loc     0x000000000000002c      0x140 driver.o
  .debug_loc     0x000000000000016c       0x2c main.o
  .debug_loc     0x0000000000000198       0x38 Pressure_Detection.o
  .debug_loc     0x00000000000001d0       0x2c Pressure_Sensor.o
- .debug_loc     0x00000000000001fc       0x7c Startup.o
+ .debug_loc     0x00000000000001fc       0x38 Startup.o
 
 .debug_aranges  0x0000000000000000       0xc0
  .debug_aranges
@@ -149,15 +132,15 @@ LOAD linker stubs
  .debug_aranges
                 0x00000000000000a0       0x20 Startup.o
 
-.debug_line     0x0000000000000000      0x2da
+.debug_line     0x0000000000000000      0x2c4
  .debug_line    0x0000000000000000       0x41 Alarm.o
  .debug_line    0x0000000000000041       0xb2 driver.o
  .debug_line    0x00000000000000f3       0x40 main.o
  .debug_line    0x0000000000000133       0x6f Pressure_Detection.o
  .debug_line    0x00000000000001a2       0x49 Pressure_Sensor.o
- .debug_line    0x00000000000001eb       0xef Startup.o
+ .debug_line    0x00000000000001eb       0xd9 Startup.o
 
-.debug_str      0x0000000000000000      0x262
+.debug_str      0x0000000000000000      0x277
  .debug_str     0x0000000000000000      0x12f Alarm.o
                                         0x168 (size before relaxing)
  .debug_str     0x000000000000012f       0x55 driver.o
@@ -168,8 +151,8 @@ LOAD linker stubs
                                         0x192 (size before relaxing)
  .debug_str     0x00000000000001c5       0x1f Pressure_Sensor.o
                                         0x173 (size before relaxing)
- .debug_str     0x00000000000001e4       0x7e Startup.o
-                                        0x1ca (size before relaxing)
+ .debug_str     0x00000000000001e4       0x93 Startup.o
+                                        0x1df (size before relaxing)
 
 .comment        0x0000000000000000       0x33
  .comment       0x0000000000000000       0x33 Alarm.o
@@ -195,10 +178,10 @@ LOAD linker stubs
  .ARM.attributes
                 0x00000000000000e1       0x2d Startup.o
 
-.debug_frame    0x0000000000000000      0x1a4
+.debug_frame    0x0000000000000000      0x184
  .debug_frame   0x0000000000000000       0x2c Alarm.o
  .debug_frame   0x000000000000002c       0xa0 driver.o
  .debug_frame   0x00000000000000cc       0x2c main.o
  .debug_frame   0x00000000000000f8       0x30 Pressure_Detection.o
  .debug_frame   0x0000000000000128       0x2c Pressure_Sensor.o
- .debug_frame   0x0000000000000154       0x50 Startup.o
+ .debug_frame   0x0000000000000154       0x30 Startup.o
