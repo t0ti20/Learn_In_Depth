@@ -10,7 +10,7 @@
 #Compiler Name
 CC=arm-none-eabi-
 #Compiler Flags
-CFLAGS= -g -mcpu=cortex-m3 -gdwarf-2 -mthumb
+CFLAGS= -mcpu=cortex-m3 -gdwarf-2 -mthumb -g
 #Linker Flags
 LFLAGS= -Map=Map_File.map
 INCS= \
@@ -48,7 +48,7 @@ $(Application).elf: $(OBJ)
 	@$(CC)ld $(LFLAGS) -T $(SRL) $(OBJ) $(LIBS) -o $@ 
 #Generate Hex File
 $(Application).hex: $(Application).elf
-	@$(CC)objcopy -O binary $< $@
+	@$(CC)objcopy -O ihex $< $@
 #Clean All Files
 clean:
 	@rm -rf *.hex *.elf *.o *.map
