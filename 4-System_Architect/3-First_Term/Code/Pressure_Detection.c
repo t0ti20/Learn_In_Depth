@@ -26,7 +26,7 @@ void Main_Algorithm(void)
      while (True)
      {
           Pressure=getPressureVal();
-          if(getPressureVal()>Theshold)
+          if(Pressure>=20)
           {
                Start_Alarm();
           }
