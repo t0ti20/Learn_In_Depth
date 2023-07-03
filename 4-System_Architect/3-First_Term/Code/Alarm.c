@@ -22,7 +22,11 @@
 ********************************************************************/
 void Start_Alarm(void)
 {
-     Set_Alarm_actuator(1);
-     Delay(100000);
-     Set_Alarm_actuator(0);
+     while(1)
+     {
+          Set_Alarm_actuator(1);
+          Delay(100000);
+          Set_Alarm_actuator(0);
+          Delay(100000);
+     }
 }
