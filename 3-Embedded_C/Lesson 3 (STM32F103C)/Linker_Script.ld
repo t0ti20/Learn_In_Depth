@@ -12,8 +12,8 @@ ENTRY(_RESET_)				/*Define Entre Point For ELF File*/
 /******************************************************************/
 MEMORY						/*Define All Memories*/
 {
-	ROM (rwx) : ORIGIN = 0X08000000, LENGTH = 128k
-	RAM (rx)  : ORIGIN = 0X20000000, LENGTH = 20k
+	ROM (rx) : ORIGIN = 0X08000000, LENGTH = 128k
+	RAM (rwx)  : ORIGIN = 0X20000000, LENGTH = 20k
 }
 /******************************************************************/
 /******************************************************************/
