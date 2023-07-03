@@ -111,21 +111,21 @@ LOAD Startup.o
 OUTPUT(Application.elf elf32-littlearm)
 LOAD linker stubs
 
-.debug_info     0x0000000000000000      0x4c2
+.debug_info     0x0000000000000000      0x4c6
  .debug_info    0x0000000000000000       0x8c Alarm.o
  .debug_info    0x000000000000008c       0xf4 driver.o
- .debug_info    0x0000000000000180       0x8c main.o
- .debug_info    0x000000000000020c       0xbb Pressure_Detection.o
- .debug_info    0x00000000000002c7       0x90 Pressure_Sensor.o
- .debug_info    0x0000000000000357      0x16b Startup.o
+ .debug_info    0x0000000000000180       0x90 main.o
+ .debug_info    0x0000000000000210       0xbb Pressure_Detection.o
+ .debug_info    0x00000000000002cb       0x90 Pressure_Sensor.o
+ .debug_info    0x000000000000035b      0x16b Startup.o
 
-.debug_abbrev   0x0000000000000000      0x2d7
+.debug_abbrev   0x0000000000000000      0x2d9
  .debug_abbrev  0x0000000000000000       0x44 Alarm.o
  .debug_abbrev  0x0000000000000044       0xc3 driver.o
- .debug_abbrev  0x0000000000000107       0x42 main.o
- .debug_abbrev  0x0000000000000149       0x73 Pressure_Detection.o
- .debug_abbrev  0x00000000000001bc       0x46 Pressure_Sensor.o
- .debug_abbrev  0x0000000000000202       0xd5 Startup.o
+ .debug_abbrev  0x0000000000000107       0x44 main.o
+ .debug_abbrev  0x000000000000014b       0x73 Pressure_Detection.o
+ .debug_abbrev  0x00000000000001be       0x46 Pressure_Sensor.o
+ .debug_abbrev  0x0000000000000204       0xd5 Startup.o
 
 .debug_aranges  0x0000000000000000       0xc0
  .debug_aranges
