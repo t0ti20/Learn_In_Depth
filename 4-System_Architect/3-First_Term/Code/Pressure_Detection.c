@@ -20,9 +20,9 @@
 * Parameters (out): None
 * Return value:   : void
 ********************************************************************/
+int Pressure=0;
 void Main_Algorithm(void)
 {
-     int Pressure=0;
      while (True)
      {
           Pressure=getPressureVal();
