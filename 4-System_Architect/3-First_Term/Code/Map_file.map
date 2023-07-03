@@ -108,16 +108,16 @@ LOAD main.o
 LOAD Pressure_Detection.o
 LOAD Pressure_Sensor.o
 LOAD Startup.o
-OUTPUT(Application.elf elf32-littlearm)
+OUTPUT(cortex-M4.elf elf32-littlearm)
 LOAD linker stubs
 
-.debug_info     0x0000000000000000      0x4c6
- .debug_info    0x0000000000000000       0x8c Alarm.o
- .debug_info    0x000000000000008c       0xf4 driver.o
- .debug_info    0x0000000000000180       0x90 main.o
- .debug_info    0x0000000000000210       0xbb Pressure_Detection.o
- .debug_info    0x00000000000002cb       0x90 Pressure_Sensor.o
- .debug_info    0x000000000000035b      0x16b Startup.o
+.debug_info     0x0000000000000000      0x500
+ .debug_info    0x0000000000000000       0x91 Alarm.o
+ .debug_info    0x0000000000000091      0x106 driver.o
+ .debug_info    0x0000000000000197       0x94 main.o
+ .debug_info    0x000000000000022b       0xc0 Pressure_Detection.o
+ .debug_info    0x00000000000002eb       0x95 Pressure_Sensor.o
+ .debug_info    0x0000000000000380      0x180 Startup.o
 
 .debug_abbrev   0x0000000000000000      0x2d9
  .debug_abbrev  0x0000000000000000       0x44 Alarm.o
@@ -126,6 +126,14 @@ LOAD linker stubs
  .debug_abbrev  0x000000000000014b       0x73 Pressure_Detection.o
  .debug_abbrev  0x00000000000001be       0x46 Pressure_Sensor.o
  .debug_abbrev  0x0000000000000204       0xd5 Startup.o
+
+.debug_loc      0x0000000000000000      0x278
+ .debug_loc     0x0000000000000000       0x2c Alarm.o
+ .debug_loc     0x000000000000002c      0x140 driver.o
+ .debug_loc     0x000000000000016c       0x2c main.o
+ .debug_loc     0x0000000000000198       0x38 Pressure_Detection.o
+ .debug_loc     0x00000000000001d0       0x2c Pressure_Sensor.o
+ .debug_loc     0x00000000000001fc       0x7c Startup.o
 
 .debug_aranges  0x0000000000000000       0xc0
  .debug_aranges
@@ -149,19 +157,19 @@ LOAD linker stubs
  .debug_line    0x00000000000001a2       0x49 Pressure_Sensor.o
  .debug_line    0x00000000000001eb       0xef Startup.o
 
-.debug_str      0x0000000000000000      0x258
- .debug_str     0x0000000000000000      0x125 Alarm.o
-                                        0x15e (size before relaxing)
- .debug_str     0x0000000000000125       0x55 driver.o
-                                        0x19f (size before relaxing)
- .debug_str     0x000000000000017a        0xc main.o
-                                        0x156 (size before relaxing)
- .debug_str     0x0000000000000186       0x35 Pressure_Detection.o
-                                        0x188 (size before relaxing)
- .debug_str     0x00000000000001bb       0x1f Pressure_Sensor.o
-                                        0x169 (size before relaxing)
- .debug_str     0x00000000000001da       0x7e Startup.o
-                                        0x1c0 (size before relaxing)
+.debug_str      0x0000000000000000      0x262
+ .debug_str     0x0000000000000000      0x12f Alarm.o
+                                        0x168 (size before relaxing)
+ .debug_str     0x000000000000012f       0x55 driver.o
+                                        0x1a9 (size before relaxing)
+ .debug_str     0x0000000000000184        0xc main.o
+                                        0x160 (size before relaxing)
+ .debug_str     0x0000000000000190       0x35 Pressure_Detection.o
+                                        0x192 (size before relaxing)
+ .debug_str     0x00000000000001c5       0x1f Pressure_Sensor.o
+                                        0x173 (size before relaxing)
+ .debug_str     0x00000000000001e4       0x7e Startup.o
+                                        0x1ca (size before relaxing)
 
 .comment        0x0000000000000000       0x33
  .comment       0x0000000000000000       0x33 Alarm.o
