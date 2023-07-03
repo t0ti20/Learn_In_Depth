@@ -39,7 +39,7 @@ Make: $(Application).hex
 	@echo "========== Build Finished ========="
 #Compile And Assimble C Files Files
 %.o:%.c
-	@$(CC)gcc $(CFLAGS) -c $< $(INCS) -o $@
+	@$(CC)gcc $(CFLAGS) $(INCS) -c $< -o $@
 #Assimble Assimply Files
 %.o:%.s
 	@$(CC)as $(CFLAGS) $< -o $@
