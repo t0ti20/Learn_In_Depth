@@ -22,7 +22,6 @@ $(ProjectName).hex:$(ProjectName).elf
 	$(CC)objcopy   -O ihex $< $@
 clean :
 	rm *.elf *.bin *.hex
-	
 clean_all:
 	rm *.elf *.o *.bin *.hex *.axf
 	@echo "===============$(ProjectName) clean is done ================" 
