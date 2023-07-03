@@ -69,11 +69,11 @@ void Main_Algorithm(void)
           if(Pressure>=20)
           {
                
-               Set_Alarm_actuator(0);
+               Set_Alarm_actuator(1);
           }
           else 
           {    
-               Set_Alarm_actuator(1);
+               Set_Alarm_actuator(0);
           }
      }
 }
