@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include "./driver.h"
 #include "Pressure_Detection.h"
-void Intery_Function (){
+int main (){
 	GPIO_INITIALIZATION();
 	while (1)
 	{
