@@ -10,7 +10,7 @@
 #Compiler Name
 CC=arm-none-eabi-
 #Compiler Flags
-CFLAGS= -g -mcpu=cortex-m3
+CFLAGS= -g -mcpu=cortex-m3 -gdwarf-2 -mthumb
 #Linker Flags
 LFLAGS= -Map=Map_File.map
 INCS= \
