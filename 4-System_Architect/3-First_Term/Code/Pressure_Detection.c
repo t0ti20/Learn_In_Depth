@@ -26,9 +26,7 @@ void Main_Algorithm(void)
      while (True)
      {
           Pressure=getPressureVal();
-          if(Pressure>=20)
-          {
-               Start_Alarm();
-          }
+          if(Pressure>=Theshold)Set_Alarm_actuator(0);
+          else Set_Alarm_actuator(1);
      }
 }
