@@ -41,7 +41,6 @@ void SPI_VidInitialization(u8 Copy_u8Master_Slave,u8 Copy_u8Interrupt)
 			GPIO_VidSet_Pin_Direction(Data_Port,MISO_Pin,OUTPUT);
 			GPIO_VidSet_Pin_Direction(Data_Port,SPI_SCK,INPUT);
 			Clear_Bit(SPCR,SPCR_MSTR);break;
-		default:Clear_Bit(SPCR,SPCR_MSTR);break;
 	}
 	/* Interrupt Setup */
 	if(Copy_u8Interrupt==SPI_Interrupt_Enable)Set_Bit(SPCR,SPCR_SPIE);
@@ -64,9 +63,9 @@ void SPI_VidInitialization(u8 Copy_u8Master_Slave,u8 Copy_u8Interrupt)
 #endif
 	/* Clock Phase */
 #if Clock_Phase == First_Edge
-	Clear_Bit(SPCR,SPCR_CPOL);
+	Clear_Bit(SPCR,SPCR_CPHA);
 #elif Clock_Phase == Second_Edge
-	Set_Bit(SPCR,SPCR_CPOL);
+	Set_Bit(SPCR,SPCR_CPHA);
 #else
 #warning (" Wrong Configuration !!")
 #endif
@@ -117,7 +116,7 @@ void SPI_VidInitialization(u8 Copy_u8Master_Slave,u8 Copy_u8Interrupt)
 ********************************************************************/
 void SPI_VidSend_Receive(u8 *Copy_u8Data)
 {
-	SPDR=(*Copy_u8Data);
+	SPDR=*Copy_u8Data;
 	while(!Get_Bit(SPSR,SPSR_SPIF));
 	(*Copy_u8Data)=SPDR;
 }

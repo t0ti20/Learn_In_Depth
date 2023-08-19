@@ -136,12 +136,10 @@ void UART_VidSend_Receive (u8 Copy_u8Mode,u8 *Copy_u8Data)
 ********************************************************************/
 void UART_VidSend_String (u8 *Copy_u8Data)
 {
-	u8 Data='\r';
 	do 
 	{
 		UART_VidSend_Receive(Send,(u8 *)Copy_u8Data++);
 	}while(Copy_u8Data[0]);
-	UART_VidSend_Receive(Send,&Data);
 }
 /********************************************************************
 * Syntax          : static void UART_VidReceive_String_Local(u8 *Copy_u8Data)

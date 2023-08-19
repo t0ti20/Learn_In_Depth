@@ -250,14 +250,13 @@ void HAL_LCD_Send_String(char String[])
 ********************************************************************/
 void HAL_LCD_Set_Courser(u8 Y_Axis,u8 X_Axis)
 {
-
-     u8 Line_Select=Y_Axis?LCD_SECOND_LINE:LCD_FIRST_LINE;
+     u8 Line_Select;
      switch (Y_Axis)
      {
-          case ONE:Line_Select=LCD_FIRST_LINE;break;
-          case TWO:Line_Select=LCD_SECOND_LINE;break;
-          case THREE:Line_Select=LCD_THIRD_LINE;break;
-          case FOUR:Line_Select=LCD_FOURTH_LINE;break;
+          case ZERO:Line_Select=LCD_FIRST_LINE;break;
+          case ONE:Line_Select=LCD_SECOND_LINE;break;
+          case TWO:Line_Select=LCD_THIRD_LINE;break;
+          case THREE:Line_Select=LCD_FOURTH_LINE;break;
           default:break;
      }
      HAL_LCD_Send_Command(Line_Select+X_Axis);

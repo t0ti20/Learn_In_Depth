@@ -12,13 +12,13 @@
 --Application PreProcessor Configuration--
 *****************************************/
 /* Pre_Scalar_2(4,8,16,32,64,128) */
-#define Clock_Rate			          (Pre_Scalar_8)		 
+#define Clock_Rate			          (Pre_Scalar_16)		 
 /* MSBF - LSBF */
 #define Data_Order			          (MSBF)
 /* Idle_Low - Idle_Hi */
-#define SPI_Clock_Polarity              (Idle_Low)		 
+#define SPI_Clock_Polarity              (Idle_Hi)		 
 /* Second_Edge - First_Edge */
-#define Clock_Phase		               (First_Edge)		 
+#define Clock_Phase		               (Second_Edge)		 
 /* MOSI HW PIN */
 #define MOSI_Pin			          (Pin_5)
 /* MISO HW PIN */
@@ -27,8 +27,6 @@
 #define SPI_SCK			          (Pin_7)
 /* MISO MISO Port */
 #define Data_Port			          (Port_B)
-/* MISO MISO Port */
-#define Flush_Buffer		          (0x11)
 #endif
 /********************************************************************
  *  END OF FILE:  USART_Config.h

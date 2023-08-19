@@ -12,11 +12,13 @@
 /*****************************************
 ----------   Include Files    ------------
 *****************************************/
-#include "GPIO_Interface.h"
-#include "UART_Interface.h"
-#include "Timer_Interface.h"
-#include "SPI_Interface.h"
+#include "Motion_Sensor_Interface.h"
+#include "Communication_Interface.h"
 #include "Buzzer_Interface.h"
+#include "UART_Interface.h"
+#include "Gate_Interface.h"
+#include "LCD_Interface.h"
+#include "SPI_Interface.h"
 #include "LED_Interface.h"
 /*****************************************
 --------    Type  Definitions    ---------

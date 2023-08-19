@@ -16,9 +16,12 @@
 /*****************************************
 --------    Type  Definitions    ---------
 *****************************************/
-typedef enum Seven_Segment_Mode_t{Common_Anode,Common_Cathode}Seven_Segment_Mode_t;
+typedef enum Seven_Segment_Mode_t
+{
+	Common_Anode					=(0),
+	Common_Cathode					=(1),
+}Seven_Segment_Mode_t;
 #pragma pack(1)
-/*Port,Seven_Segment_Mode,{Pin_Numbers},Enable_Pin*/
 typedef struct Seven_Segment_t
 {
 	GPIO_Port_t Port;
@@ -26,7 +29,6 @@ typedef struct Seven_Segment_t
      GPIO_Pin_Number_t Pin_Numbers[EIGHT];
 	GPIO_Pin_Number_t Enable_Pin;
 }Seven_Segment_t;
-
 #pragma pack()
 /*****************************************
 ---------    Configure Macros    ---------
