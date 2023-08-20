@@ -13,6 +13,7 @@
 ----------   Include Files    ------------
 *****************************************/
 #include "GPIO_Interface.h"
+#include "UART_Interface.h"
 #include "SPI_Private.h"
 #include "SPI_Config.h"
 /*****************************************
